@@ -6,8 +6,7 @@ const Step1 = ({ handleInput, onNext, inputValues, validationErrors }) => (
   <Step
     showBack={false}
     showNext
-    onNext={onNext}
-    progress={progress}>
+    onNext={onNext}>
     <TextInput
       type='email'
       onChange={handleInput('email')}

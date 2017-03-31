@@ -2,9 +2,8 @@ import React from 'react'
 import Step from './Step'
 import TextInput from './TextInput'
 
-const Step1 = ({ handleInput, onNext, inputValues, validationErrors, progress }) => (
+const Step1 = ({ handleInput, onNext, inputValues, validationErrors }) => (
   <Step
-    label='Signup'
     showBack={false}
     showNext
     onNext={onNext}

@@ -31,8 +31,6 @@ Buttons.propTypes = {
 
 const Step = ({ label, progress, children, showNext, showBack, onNext, onBack }) => (
   <div>
-    <h1 className='step--label'>{label}</h1>
-    <ProgressBar progress={progress || 30} />
     {children}
     <Buttons
       showBack={showBack}

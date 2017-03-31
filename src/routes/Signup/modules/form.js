@@ -13,6 +13,7 @@ const validators = {
 const SET_INPUT_VALUE = 'SET_INPUT_VALUE'
 const SET_VALIDATION_ERROR = 'SET_VALIDATION_ERROR'
 const CHANGE_STEP = 'CHANGE_STEP'
+const SET_PROGRESS = 'SET_PROGRESS'
 
 // action creators
 export const setInputValue = (inputName, value) => ({
@@ -30,6 +31,11 @@ export const setValidationError = (inputName, error) => ({
 export const changeStep = step => ({
   type: CHANGE_STEP,
   step
+})
+
+export const setProgress = progress => ({
+  type: SET_PROGRESS,
+  progress
 })
 
 // thunks
@@ -50,7 +56,10 @@ export const validateStep = () => (dispatch, getState) => {
         inputName => [inputName, validators[inputName](inputValues[inputName], inputValues)]
       )
       const errors = validations.filter(([_, value]) => value !== '')
-      if (errors.length === 0) dispatch(changeStep(1))
+      if (errors.length === 0) {
+        dispatch(changeStep(1))
+        dispatch(setProgress(60))
+      }
       else errors.forEach(data => dispatch(setValidationError(...data)))
     }
   }
@@ -68,12 +77,13 @@ const handlers = {
     const validationErrors = { ...state.validationErrors, [inputName]: error }
     return { ...state, validationErrors }
   },
-  [CHANGE_STEP]: (state, { step }) => ({ ...state, step })
+  [CHANGE_STEP]: (state, { step }) => ({ ...state, step }),
+  [SET_PROGRESS]: (state, { progress }) => ({ ...state, progress })
 }
 
 // reducer
 const initialState = {
-  progress: 0,
+  progress: 30,
   step: 0,
   inputValues: {
     email: '',

@@ -5,6 +5,10 @@
     border-radius: 10px;
     width: 40vw;
     height: 80vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
   }
   &__label {
     color: #3e7cda;

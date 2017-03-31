@@ -1,28 +1,24 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { handleInput, changeStep, validateStep } from '../modules/form'
+import { handleInput, goBack, validateStepAndProceed, printJSON } from '../modules/form'
 import Signup from '../components/Signup'
 
 const mapStateToProps = ({ form }) => form
-const mapDispatchToProps = { handleInput, changeStep, validateStep }
+const mapDispatchToProps = { handleInput, validateStepAndProceed, goBack, printJSON }
 
 class SignupContainer extends Component {
   handleInput = inputName => value => this.props.handleInput(inputName, value)
-  onBack = () => {
-    const { changeStep, step } = this.props
-    changeStep(step - 1)
-  }
-  onNext = () => this.props.validateStep()
   render () {
-    const { inputValues, validationErrors, step, progress } = this.props
+    const { inputValues, validationErrors, step, progress, validateStepAndProceed, goBack, printJSON } = this.props
     const props = {
-      onBack: this.onBack,
-      onNext: this.onNext,
+      onBack: goBack,
+      onNext: validateStepAndProceed,
       handleInput: this.handleInput,
       inputValues,
       validationErrors,
       step,
-      progress
+      progress,
+      printJSON
     }
     return <Signup {...props} />
   }

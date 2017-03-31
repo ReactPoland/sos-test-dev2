@@ -1,5 +1,36 @@
 .step {
   &--container {
-
+    height: 100%;
+  }
+  &__next {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    border: none;
+    color: #3b7ad9;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    &__arrow { font-size: 1rem; }
+    cursor: pointer;
+  }
+  &__back {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    border: none;
+    color: #909190;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  &__buttons {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top: 1px solid #d3d3d3;
+    padding: 1rem 0;
   }
 }

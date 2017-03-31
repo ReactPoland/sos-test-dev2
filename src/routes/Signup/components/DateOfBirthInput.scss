@@ -1,0 +1,35 @@
+.dob-input {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 5%;
+  }
+  &__inputs-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  &__input {
+    width: 100%;
+    text-align: center;
+    border: 1px solid #d3d3d3;
+    padding: 10px;
+    &:first-child {
+      border-bottom-left-radius: 5px;
+      border-top-left-radius: 5px;
+    }
+    &:nth-child(2) {
+      border-left: 0;
+      border-right: 0;
+    }
+    &:last-child {
+      border-bottom-right-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+  }
+  &__label {
+    margin-bottom: 10px;
+    &--error { color: #ff0000; }
+  }
+}
